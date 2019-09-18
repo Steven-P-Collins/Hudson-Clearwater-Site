@@ -1,0 +1,42 @@
+body {
+    font-family: "Engravers MT";
+}
+
+.borders {
+    border: 2px solid black;
+    height: 53vw;
+    margin: 2%;
+    min-height: 650px;
+    outline: 1px solid black;
+    outline-offset: -9px;
+    width: 96%;
+}
+
+@font-face {
+    font-family: "ITC Edwardian Script";
+    src: url("//db.onlinewebfonts.com/t/0db512de6cc55ce96eb449022d2bc7c9.eot");
+    src: url("//db.onlinewebfonts.com/t/0db512de6cc55ce96eb449022d2bc7c9.eot?#iefix") format("embedded-opentype"),
+         url("//db.onlinewebfonts.com/t/0db512de6cc55ce96eb449022d2bc7c9.woff2") format("woff2"),
+         url("//db.onlinewebfonts.com/t/0db512de6cc55ce96eb449022d2bc7c9.woff") format("woff"),
+         url("//db.onlinewebfonts.com/t/0db512de6cc55ce96eb449022d2bc7c9.ttf") format("truetype"),
+         url("//db.onlinewebfonts.com/t/0db512de6cc55ce96eb449022d2bc7c9.svg#ITC Edwardian Script") format("svg");
+}
+
+@font-face {
+    font-family: "Engravers MT";
+    src: url("//db.onlinewebfonts.com/t/c5933cd6b0c0216e46f65ddc2685fd1c.eot");
+    src: url("//db.onlinewebfonts.com/t/c5933cd6b0c0216e46f65ddc2685fd1c.eot?#iefix") format("embedded-opentype"),
+         url("//db.onlinewebfonts.com/t/c5933cd6b0c0216e46f65ddc2685fd1c.woff2") format("woff2"),
+         url("//db.onlinewebfonts.com/t/c5933cd6b0c0216e46f65ddc2685fd1c.woff") format("woff"),
+         url("//db.onlinewebfonts.com/t/c5933cd6b0c0216e46f65ddc2685fd1c.ttf") format("truetype"),
+         url("//db.onlinewebfonts.com/t/c5933cd6b0c0216e46f65ddc2685fd1c.svg#Engravers MT") format("svg");
+}
+
+.edwardian {
+    font-family: "ITC Edwardian Script";
+}
+
+.HCW_Logo {
+    margin: 170px;
+}
+
