@@ -18,6 +18,10 @@ body {
     width: 96%;
 }
 
+.spacing {
+    margin: auto .5rem 1rem;
+}
+
 /*todo Saving for when menus change from pdf forms*/
 /*.edwardian {*/
 /*    font-family: "ITC Edwardian Script", serif;*/

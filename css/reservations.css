@@ -1,11 +1,16 @@
-.borders {
-    height: 100%;
-}
-
 .res_logo {
     height: 160px;
 }
 
-.res {
-    padding: 0 0 1rem;
+.res, .res_button {
+    margin: 0 0 1rem;
+}
+
+.res_button {
+    background: #fff;
+    height: 4rem;
+    border: 2px solid black;
+    padding: 1rem;
+    outline: 1px solid black;
+    outline-offset: -7px;
 }
