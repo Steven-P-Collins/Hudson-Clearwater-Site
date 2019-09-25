@@ -1,4 +1,4 @@
-a, a:hover {
+a, a:hover, p {
     color: #000;
     text-decoration: none;
 }
@@ -16,6 +16,10 @@ body {
     outline: 1px solid black;
     outline-offset: -9px;
     width: 96%;
+}
+
+.res_logo {
+    height: 160px;
 }
 
 .spacing {

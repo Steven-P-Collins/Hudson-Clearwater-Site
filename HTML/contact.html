@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Hudson Clearwater Email Reservation</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="icon" type="image/png" href="../imgs/favicon.ico">
+        <link rel="stylesheet" href="../css/site_wide.css">
+        <link rel="stylesheet" href="../css/contact.css">
+    </head>
+    <body class="borders">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <a href="../index.html">
+                    <img class="res_logo" src="../imgs/HudsonClearwater-logo.gif" alt="447 Hudson Clearwater">
+                </a>
+            </div>
+            <h5 class="row justify-content-center">Contact us</h5>
+            <form action="mailto:stevencollins2109@gmail.com" method="post" enctype="text/plain">
+                <div class="row justify-content-center">
+                    <div class="col-sm-5 col-xl-4 form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" name="name">
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-sm-5 col-xl-4 form-group">
+                        <label for="time">date & time</label>
+                        <input type="datetime-local" class="form-control" id="time" name="time">
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-sm-3  form-group">
+                        <label for="phone">phone number</label>
+                        <input type="number" class="form-control" id="phone" name="phone">
+                    </div>
+                    <div class="col-sm-2 col-xl-1 form-group">
+                        <label for="guests">guests</label>
+                        <input type="number" class=" form-control" id="guests" min="1" name="guests">
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-sm-5 col-xl-4 form-group">
+                        <label for="email">email</label>
+                        <input type="email" class="form-control" id="email" name="email">
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-sm-5 col-xl-4 form-group">
+                        <label for="comments">comments</label>
+                        <textarea class="form-control" id="comments" rows="3" name="comments"></textarea>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-sm-5 form-check text-center">
+                        <input class="form-check-input" type="checkbox" id="pdr" name="pdr">
+                        <label class="form-check-label checkbox_label" for="pdr">
+                            book our private dining room
+                        </label>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <button type="submit" class="btn">Submit your reservation</button>
+                </div>
+            </form>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </body>
+</html>
