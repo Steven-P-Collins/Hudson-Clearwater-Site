@@ -9,3 +9,7 @@
 .form-check-input {
     margin-top: .27rem !important;
 }
+
+.form-control {
+    padding: .375rem .3rem !important;
+}
