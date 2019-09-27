@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="../css/contact.css">
     </head>
     <body class="borders">
+        <script src="../js/contact.js"></script>
         <div class="container-fluid">
             <div class="row justify-content-center">
                 <a href="../index.html">
@@ -20,33 +21,39 @@
                 <div class="row justify-content-center">
                     <div class="col-sm-5 col-xl-4 form-group">
                         <label for="name">Name</label>
-                        <input type="text" class="form-control" id="name" name="name">
+                        <input type="text" class="form-control" id="name" name="name" required>
                     </div>
                 </div>
                 <div class="row justify-content-center">
                     <div class="col-sm-3 col-xl-2 form-group">
                         <label for="date">date</label>
-                        <input type="date" class="form-control" id="date" name="date">
+                        <input type="text" placeholder="MM/DD/YYYY" class="form-control" id="date" name="date" required>
                     </div>
-                    <div class="col-sm-2 col-xl-2 form-group">
+                    <div class="col-sm-1 col-xl-1 form-group">
                         <label for="time">time</label>
-                        <input type="time" class="form-control" id="time" name="time">
+                        <input type="text" placeholder="--:--" class="form-control time" id="time" name="time" required>
+                    </div>
+                    <div class="col-sm-1 form-group">
+                        <select id="time_day" name="time_day">
+                            <option>PM</option>
+                            <option>AM</option>
+                        </select>
                     </div>
                 </div>
                 <div class="row justify-content-center">
                     <div class="col-sm-3  form-group">
                         <label for="phone">phone number</label>
-                        <input type="number" class="form-control" id="phone" name="phone">
+                        <input type="text" placeholder="(XXX)-XXX-XXX" class="form-control" id="phone" name="phone" required>
                     </div>
                     <div class="col-sm-2 col-xl-1 form-group">
                         <label for="guests">guests</label>
-                        <input type="number" class=" form-control" id="guests" min="1" name="guests">
+                        <input type="number" class=" form-control guests" id="guests" min="1" name="guests" required>
                     </div>
                 </div>
                 <div class="row justify-content-center">
                     <div class="col-sm-5 col-xl-4 form-group">
                         <label for="email">email</label>
-                        <input type="email" class="form-control" id="email" name="email">
+                        <input type="email" class="form-control" id="email" name="email" required>
                     </div>
                 </div>
                 <div class="row justify-content-center">

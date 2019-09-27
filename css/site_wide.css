@@ -12,11 +12,11 @@ h5 {
     margin: 0 0 .8rem;
 }
 
-input {
+input, select {
     height: 1.5rem !important;
 }
 
-input, textarea {
+input, select, textarea {
     border: 1px solid #000 !important;
     border-radius: 0 !important;
     color: #000 !important;
@@ -24,10 +24,41 @@ input, textarea {
     margin: auto auto -.5rem;
 }
 
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
+}
+
 label {
     line-height: 1rem;
 }
 
+select {
+    background-color: #fff;
+    margin: 1.59rem auto auto -.3rem;
+    padding: .05rem .7rem;
+    -webkit-appearance: none;
+    width: 110% !important;
+}
+
+@media only screen and (min-width: 1024px) {
+    select {
+        padding: .05rem .9rem;
+    }
+}
+
+@media only screen and (min-width:1440px) {
+    select {
+        margin: 1.65rem auto auto auto;
+        padding: .05rem .3rem;
+        width: 100% !important;
+    }
+}
 
 .borders {
     border: 2px solid black;

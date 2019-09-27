@@ -11,5 +11,19 @@
 }
 
 .form-control {
-    padding: .375rem .3rem !important;
+    padding: .1rem .3rem !important;
+}
+
+.guests {
+    -webkit-appearance: none;
+}
+
+.time {
+    width: 110% !important;
+}
+
+@media only screen and (min-width: 1440px) {
+    .time {
+        width: 100% !important;
+    }
 }
