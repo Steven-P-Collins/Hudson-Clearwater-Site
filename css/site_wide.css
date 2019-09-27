@@ -8,6 +8,27 @@ body {
     font-size: .875rem;
 }
 
+h5 {
+    margin: 0 0 .8rem;
+}
+
+input {
+    height: 1.5rem !important;
+}
+
+input, textarea {
+    border: 1px solid #000 !important;
+    border-radius: 0 !important;
+    color: #000 !important;
+    font-size: .875rem !important;
+    margin: auto auto -.5rem;
+}
+
+label {
+    line-height: 1rem;
+}
+
+
 .borders {
     border: 2px solid black;
     height: 53vw;

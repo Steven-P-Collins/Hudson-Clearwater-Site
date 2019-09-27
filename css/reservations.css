@@ -1,12 +1,7 @@
-.res, .res_button {
-    margin: 0 0 1.2rem;
+.res {
+    margin: 0 0 .7rem;
 }
 
-.res_button {
-    background: #fff;
-    height: 4rem;
-    border: 2px solid black;
-    padding: 1rem;
-    outline: 1px solid black;
-    outline-offset: -7px;
+.res_title {
+    margin: 0 0 1.2rem;
 }
