@@ -78,7 +78,7 @@ select {
     margin: auto .5rem 1rem;
 }
 
-.spacing:hover {
+a:hover {
     font-family: "Engravers MT Bold", Serif;
 }
 
