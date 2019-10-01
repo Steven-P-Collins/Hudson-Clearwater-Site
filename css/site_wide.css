@@ -66,7 +66,7 @@ select {
     margin: 2%;
     min-height: 650px;
     outline: 1px solid black;
-    outline-offset: -9px;
+    outline-offset: -10px;
     width: 96%;
 }
 
@@ -76,6 +76,10 @@ select {
 
 .spacing {
     margin: auto .5rem 1rem;
+}
+
+.spacing:hover {
+    font-family: "Engravers MT Bold", Serif;
 }
 
 /*todo Saving for when menus change from pdf forms*/
@@ -101,4 +105,14 @@ select {
     url("//db.onlinewebfonts.com/t/c5933cd6b0c0216e46f65ddc2685fd1c.woff") format("woff"),
     url("//db.onlinewebfonts.com/t/c5933cd6b0c0216e46f65ddc2685fd1c.ttf") format("truetype"),
     url("//db.onlinewebfonts.com/t/c5933cd6b0c0216e46f65ddc2685fd1c.svg#Engravers MT") format("svg");
+}
+
+@font-face {
+    font-family: "Engravers MT Bold";
+    src: url("//db.onlinewebfonts.com/t/c2eeb921f98253e22ae21e7b4d56966f.eot");
+    src: url("//db.onlinewebfonts.com/t/c2eeb921f98253e22ae21e7b4d56966f.eot?#iefix") format("embedded-opentype"),
+    url("//db.onlinewebfonts.com/t/c2eeb921f98253e22ae21e7b4d56966f.woff2") format("woff2"),
+    url("//db.onlinewebfonts.com/t/c2eeb921f98253e22ae21e7b4d56966f.woff") format("woff"),
+    url("//db.onlinewebfonts.com/t/c2eeb921f98253e22ae21e7b4d56966f.ttf") format("truetype"),
+    url("//db.onlinewebfonts.com/t/c2eeb921f98253e22ae21e7b4d56966f.svg#Engravers MT") format("svg");
 }

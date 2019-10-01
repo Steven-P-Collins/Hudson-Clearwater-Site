@@ -9,6 +9,24 @@ window.onload = () => {
     document.getElementById('time').addEventListener('input', e => {
        let time = e.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,2})/);
        e.target.value = !time[2] ? time[1] : time[1] + ':' + time[2];
+
+       // if (!time[2]) {
+       //     e.target.value = time[1];
+       // }
+       // else if (time[1] === '1' && time[2][0] <= 2 && time[2][1] <= 5) {
+       //     console.log(time[3]);
+       //     e.target.value = time[1] + time[2][0] + ':' + time[2][1] + time[3];
+       // }
+       // else if (time[1] && time[2][0] <= 5 && time[2][1] <= 5) {
+       //     console.log('uhh');
+       //     e.target.value = time[1] + ':' + time[2];
+       // }
+       // else if (time[1] === '1' && time[2][0] <= 2 && time[2][1] > 5) {
+       //     console.log('in');
+       //     time[2][1] = '';
+       // }
+
+
     });
 
     document.getElementById('guests').addEventListener('input', e => {
