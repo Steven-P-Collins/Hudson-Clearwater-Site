@@ -46,6 +46,13 @@ select {
     width: 110% !important;
 }
 
+@media only screen and (max-width: 575px) {
+    select {
+        margin: auto;
+        width: 100% !important;
+    }
+}
+
 @media only screen and (min-width: 1024px) {
     select {
         padding: .05rem .9rem;
@@ -62,9 +69,9 @@ select {
 
 .borders {
     border: 2px solid black;
-    height: 53vw;
     margin: 2%;
-    min-height: 650px;
+    min-height: 700px;
+    min-width: 800px;
     outline: 1px solid black;
     outline-offset: -10px;
     width: 96%;

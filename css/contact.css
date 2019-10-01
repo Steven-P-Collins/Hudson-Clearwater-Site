@@ -7,7 +7,19 @@
 }
 
 .form-check-input {
-    margin-top: .27rem !important;
+    margin: .27rem auto !important;
+}
+
+@media only screen and (min-width: 885px) {
+    .form-check-input {
+        margin: .27rem auto auto -1.25rem !important;
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    .form-check-input {
+        margin: .27rem auto auto -1.25rem !important;
+    }
 }
 
 .form-control {
@@ -18,8 +30,10 @@
     -webkit-appearance: none;
 }
 
-.time {
-    width: 110% !important;
+@media only screen and (min-width: 576px) {
+    .time {
+        width: 110% !important;
+    }
 }
 
 @media only screen and (min-width: 1440px) {
