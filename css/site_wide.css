@@ -31,7 +31,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 input[type=number] {
-    -moz-appearance:textfield;
+    -moz-appearance: textfield;
 }
 
 label {
@@ -40,31 +40,9 @@ label {
 
 select {
     background-color: #fff;
-    margin: 1.59rem auto auto -.3rem;
-    padding: .05rem .7rem;
+    padding: .05rem .3rem;
     -webkit-appearance: none;
-    width: 110% !important;
-}
-
-@media only screen and (max-width: 575px) {
-    select {
-        margin: auto;
-        width: 100% !important;
-    }
-}
-
-@media only screen and (min-width: 1024px) {
-    select {
-        padding: .05rem .9rem;
-    }
-}
-
-@media only screen and (min-width:1440px) {
-    select {
-        margin: 1.65rem auto auto auto;
-        padding: .05rem .3rem;
-        width: 100% !important;
-    }
+    width: 100% !important;
 }
 
 .borders {

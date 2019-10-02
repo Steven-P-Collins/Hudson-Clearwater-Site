@@ -30,14 +30,6 @@
     -webkit-appearance: none;
 }
 
-@media only screen and (min-width: 576px) {
-    .time {
-        width: 110% !important;
-    }
-}
-
-@media only screen and (min-width: 1440px) {
-    .time {
-        width: 100% !important;
-    }
+.hidden {
+    visibility: hidden;
 }

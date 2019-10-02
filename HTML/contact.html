@@ -29,11 +29,26 @@
                         <label for="date">date</label>
                         <input type="text" placeholder="MM/DD/YYYY" class="form-control" id="date" name="date" required>
                     </div>
-                    <div class="col-sm-1 col-xl-1 form-group">
+                    <div class="col-sm-1 form-group">
                         <label for="time">time</label>
-                        <input type="text" placeholder="10:45" class="form-control time" id="time" name="time" required>
+                        <select id="time" class="form-control time" name="time" required>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option selected>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                            <option>11</option>
+                            <option>12</option>
+                        </select>
+<!--                        <input type="text" placeholder="10:45" class="form-control time" id="time" name="time" required>-->
                     </div>
                     <div class="col-sm-1 form-group">
+                        <label class="hidden">AM/PM</label>
                         <select id="time_day" name="time_day">
                             <option>PM</option>
                             <option>AM</option>
@@ -41,11 +56,11 @@
                     </div>
                 </div>
                 <div class="row justify-content-center">
-                    <div class="col-sm-3  form-group">
+                    <div class="col-sm-3 col-xl-2  form-group">
                         <label for="phone">phone number</label>
                         <input type="text" placeholder="(XXX)-XXX-XXX" class="form-control" id="phone" name="phone" required>
                     </div>
-                    <div class="col-sm-2 col-xl-1 form-group">
+                    <div class="col-sm-2 col-xl-2 form-group">
                         <label for="guests">guests</label>
                         <input type="number" class=" form-control guests" id="guests" min="1" name="guests" required>
                     </div>
