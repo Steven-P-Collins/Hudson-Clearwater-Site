@@ -20,6 +20,10 @@
     .form-check-input {
         margin: .27rem auto auto -1.25rem !important;
     }
+
+    .time {
+        width: 33%;
+    }
 }
 
 .form-control {

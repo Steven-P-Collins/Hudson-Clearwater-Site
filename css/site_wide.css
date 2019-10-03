@@ -45,6 +45,10 @@ select {
     width: 100% !important;
 }
 
+span {
+    margin: 1.625rem 0;
+}
+
 .borders {
     border: 2px solid black;
     margin: 2%;
