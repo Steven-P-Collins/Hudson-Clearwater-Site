@@ -17,7 +17,7 @@ window.onload = () => {
 
     $('#time').timepicker({
         'disableTextInput': true,
-        'disableTouchKeyboard': true,
+        // 'disableTouchKeyboard': true,
         'forceRoundTime': true,
         'maxTime': '11:30PM',
         'minTime': '7:30AM',
