@@ -6,7 +6,8 @@ window.onload = () => {
     });
 
     document.getElementById('guests').addEventListener('input', e => {
-        e.target.value = e.target.value.replace(/\Dg/, '').match(/\d{0,2}/);
+        let guests = e.target.value.replace(/\Dg/, '').match(/(\d?)(\d?)/);
+        e.target.value = guests[1] === '0' ? '' : guests[0];
     });
 
     document.getElementById('phone').addEventListener('input', e => {
@@ -14,4 +15,18 @@ window.onload = () => {
         e.target.value = !phone[2] ? phone[1] : '(' + phone[1] + ') ' + phone[2] + (phone[3] ? '-' + phone[3] : '');
     });
 
+    $('#time').timepicker({
+        'disableTextInput': true,
+        'forceRoundTime': true,
+        'maxTime': '11:30PM',
+        'minTime': '7:30AM',
+        'selectOnBlur': true,
+        'step': 15,
+        }
+    );
+
+    $('#time').timepicker(
+        'setTime', new Date()
+    );
 };
+
