@@ -15,9 +15,9 @@ window.onload = () => {
         e.target.value = !phone[2] ? phone[1] : '(' + phone[1] + ') ' + phone[2] + (phone[3] ? '-' + phone[3] : '');
     });
 
+
     $('#time').timepicker({
         'disableTextInput': true,
-        // 'disableTouchKeyboard': true,
         'forceRoundTime': true,
         'maxTime': '11:30PM',
         'minTime': '7:30AM',
@@ -26,8 +26,30 @@ window.onload = () => {
         }
     );
 
-    $('#time').timepicker(
-        'setTime', new Date()
-    );
+    $('#date').datepicker({
+        'minDate': new Date()
+    });
+
+    setDates();
+
 };
 
+setDates = () => {
+    let today = new Date();
+
+    if (today.getHours() < 7 || (today.getHours() === 7 && today.getMinutes() < 30)) {
+        $('#time').timepicker(
+            'setTime', 500000 //7:00pm default
+        )
+    }
+    else {
+        $('#time').timepicker(
+            'setTime', today
+        );
+    }
+
+    $('#date').datepicker(
+        'setDate', today
+    );
+
+};
