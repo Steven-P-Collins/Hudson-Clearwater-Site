@@ -6,6 +6,7 @@ window.onload = () => {
         dateInfo;
 
     setDates(today);
+    setTime(today); //Sets default time from todays given date
 
     document.getElementById('name').addEventListener('input', e => {
         e.target.value = e.target.value.replace(/\d/g, '');
@@ -44,29 +45,7 @@ window.onload = () => {
 
 setDates = (today) => {
 
-    let date = $('#date'),
-        time = $('#time');
-
-    time.timepicker({
-            'disableTextInput': true,
-            'forceRoundTime': true,
-            'maxTime': '11:30PM',
-            'minTime': '7:30AM',
-            'selectOnBlur': true,
-            'step': 15,
-        }
-    );
-
-    if (today.getHours() < 7 || (today.getHours() === 7 && today.getMinutes() < 30)) {
-        time.timepicker(
-            'setTime', 500000 //7:00pm default
-        )
-    }
-    else {
-        time.timepicker(
-            'setTime', today
-        );
-    }
+    let date = $('#date');
 
     date.datepicker({
         'minDate': today,
@@ -81,40 +60,63 @@ setDates = (today) => {
 
 dateChecker = (date, today) => {
 
-    let daysToDate = dayCalc(date, today);
-
     switch (true) {
         case date[1] > 12:
-        case date[2] > 31:
+        case date[3] < today.getFullYear():
         case date[3] > today.getFullYear() + 1:
-        case !daysToDate:
             return false;
         default:
-            return true;
+            return dayCalc(date, today); //True or false depending on outcome
     }
 
 };
 
 dayCalc = (date, today) => {
     let daysInYear = [0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334, 365],
-        daysPerMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-
-    daysPerMonth[1] += date[3] % 4 ? 0 : 1;
+        daysPerMonth = [31, 28 + (date[3] % 4 ? 0 : 1), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
     if (date[2] > daysPerMonth[date[1] - 1]) {
         return false;
     }
 
     let dateEntered = parseInt(daysInYear[date[1] - 1]) + parseInt(date[2]) +
-        parseInt(date[3] % 4 ? 0 : (date[1] > 2 ? 1 : 0));
-    let todayDate = parseInt(daysInYear[today.getMonth()]) + parseInt(today.getDate()) +
-        parseInt(today.getFullYear() % 4 ? 0 : (today.getMonth() > 1 ? 1 : 0));
+            parseInt(date[3] % 4 ? 0 : (date[1] > 2 ? 1 : 0)),
+        todayDate = parseInt(daysInYear[today.getMonth()]) + parseInt(today.getDate()) +
+            parseInt(today.getFullYear() % 4 ? 0 : (today.getMonth() > 1 ? 1 : 0));
 
     if (date[3] == today.getFullYear()) {
-        return !(dateEntered - todayDate < 0 || dateEntered - todayDate > 183); //checks to make sure within 6 months
+        return !(dateEntered < todayDate || dateEntered - todayDate > 183); //returns false if outside of 6m range
     }
     else {
-        return -1 * (todayDate - (today.getFullYear() % 4 ? 365 : 366) - dateEntered) <= 183; //checks with consideration of leap year
+        return todayDate - (today.getFullYear() % 4 ? 365 : 366) - dateEntered >= -183; //checks with consideration of leap year
+    }
+};
+
+setTime = (today) => {
+
+    let time = $('#time'),
+        resTime = (today.getHours() > 12 ? (today.getHours() - 11) + ':30pm' :
+                    (today.getHours() + 1) + ':30am');
+
+    time.timepicker({
+            'disableTextInput': true,
+            'forceRoundTime': true,
+            'maxTime': '11:30PM',
+            'minTime': '7:30am',
+            'selectOnBlur': true,
+            'step': 15,
+        }
+    );
+
+    if (today.getHours() < 6) {
+        time.timepicker(
+            'setTime', '7:00pm' //7:00pm default
+        )
+    }
+    else {
+        time.timepicker(
+            'setTime', resTime
+        );
     }
 };
 
