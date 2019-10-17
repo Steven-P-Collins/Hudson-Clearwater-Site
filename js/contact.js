@@ -41,6 +41,16 @@ window.onload = () => {
         e.target.value = !phone[2] ? phone[1] : '(' + phone[1] + ') ' + phone[2] + (phone[3] ? '-' + phone[3] : '');
     });
 
+    document.getElementsByClassName('form')[0].addEventListener('submit', e => {
+        let dateTotal = today.getDate() + today.getFullYear() + today.getMonth() + 1;
+
+        date.value.match(/(\d{0,2})(\d{0,2})(\d{0,4})/g).forEach(element => {
+            dateTotal -= parseInt(element) ? parseInt(element) : 0;
+        });
+
+        console.log(dateTotal);
+    });
+
 };
 
 setDates = (today) => {
@@ -118,6 +128,13 @@ setTime = (today) => {
             'setTime', resTime
         );
     }
+};
+
+submit = () => {
+    let time = document.getElementById('time').value;
+
+    alert(time);
+
 };
 
 //high level AEM versioning what have you worked on
