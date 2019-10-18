@@ -2,11 +2,12 @@ window.onload = () => {
 
     let date = document.getElementById('date'),
         phone = document.getElementById('phone'),
+        time = $('#time'),
         today = new Date(),
         dateInfo;
 
     setDates(today);
-    setTime(today); //Sets default time from todays given date
+    setTime(time, today); //Sets default time from todays given date
 
     document.getElementById('name').addEventListener('input', e => {
         e.target.value = e.target.value.replace(/\d/g, '');
@@ -14,14 +15,18 @@ window.onload = () => {
 
     date.addEventListener('input', e => {
         dateInfo = e.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,2})(\d{0,4})/);
-        e.target.value = !dateInfo[2] ? dateInfo[1] : dateInfo[1] + '/' + dateInfo[2] + (dateInfo[3] ? '/' + dateInfo[3] : '');
+        e.target.value = !dateInfo[2] ? dateInfo[1] : dateInfo[1] + '/' +
+            dateInfo[2] + (dateInfo[3] ? '/' + dateInfo[3] : '');
     });
 
     date.addEventListener('change', e => {
-        if (!dateChecker(dateInfo, today)) {
+        if (!dateChecker(dateInfo, today)) { //Entered date outside of range or bad date
             date.placeholder = 'Invalid date';
             e.target.value = '';
         }
+        // else {
+            console.log(date.value);
+        // }
     });
 
     document.getElementById('guests').addEventListener('input', e => {
@@ -38,22 +43,43 @@ window.onload = () => {
 
     phone.addEventListener('input', e => {
         let phone = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
-        e.target.value = !phone[2] ? phone[1] : '(' + phone[1] + ') ' + phone[2] + (phone[3] ? '-' + phone[3] : '');
+        e.target.value = !phone[2] ? phone[1] : '(' + phone[1] + ') ' + phone[2] +
+            (phone[3] ? '-' + phone[3] : '');
     });
 
     document.getElementsByClassName('form')[0].addEventListener('submit', e => {
-        let dateTotal = today.getDate() + today.getFullYear() + today.getMonth() + 1;
+        // let dateTotal = today.getDate() + today.getFullYear() + today.getMonth() + 1;
+        //
+        // date.value.match(/(\d{0,2})(\d{0,2})(\d{0,4})/g).forEach(element => {
+        //     dateTotal -= parseInt(element) ? parseInt(element) : 0;
+        // });
+        //
+        // if (!dateTotal) { //If dates are the same value == 0
+        //     let selectedTime = time.val().match(/(\d{0,2})([:])(\d{0,2})([ap])/);
+        //
+        //     selectedTime[0] = parseInt(selectedTime[1]) + parseInt(selectedTime[3]) +
+        //         (selectedTime[4] === 'p' ? 12 : 0);
+        //
+        //     console.log(selectedTime);
+        //
+        //     // if (selectedTime.match(/[p]/g)) {
+        //     //     console.log('yay');
+        //     // }
+        //
+        //     // console.log(selectedTime.match(/[p]/g));
+        //
+        //     let currentTime = new Date(); //Needed to update time dynamically
+        //
+        //     currentTime = currentTime.getHours() + currentTime.getMinutes();
+        //
+        //     console.log(currentTime);
+        // }
 
-        date.value.match(/(\d{0,2})(\d{0,2})(\d{0,4})/g).forEach(element => {
-            dateTotal -= parseInt(element) ? parseInt(element) : 0;
-        });
-
-        console.log(dateTotal);
     });
 
 };
 
-setDates = (today) => {
+setDates = today => {
 
     let date = $('#date');
 
@@ -85,7 +111,7 @@ dayCalc = (date, today) => {
     let daysInYear = [0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334, 365],
         daysPerMonth = [31, 28 + (date[3] % 4 ? 0 : 1), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
-    if (date[2] > daysPerMonth[date[1] - 1]) {
+    if (date[2] > daysPerMonth[date[1] - 1]) { //Day exceeds month range
         return false;
     }
 
@@ -102,17 +128,16 @@ dayCalc = (date, today) => {
     }
 };
 
-setTime = (today) => {
+setTime = (time, today) => {
 
-    let time = $('#time'),
-        resTime = (today.getHours() > 12 ? (today.getHours() - 11) + ':30pm' :
+    let resTime = (today.getHours() > 12 ? (today.getHours() - 11) + ':30pm' :
                     (today.getHours() + 1) + ':30am');
 
     time.timepicker({
             'disableTextInput': true,
             'forceRoundTime': true,
             'maxTime': '11:30PM',
-            'minTime': '7:30am',
+            'minTime': '7:30am',//resTime
             'selectOnBlur': true,
             'step': 15,
         }
