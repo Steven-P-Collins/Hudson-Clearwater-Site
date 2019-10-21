@@ -2,12 +2,11 @@ window.onload = () => {
 
     let date = document.getElementById('date'),
         phone = document.getElementById('phone'),
-        time = $('#time'),
         today = new Date(),
         dateInfo;
 
-    setDates(today);
-    setTime(time, today); //Sets default time from todays given date
+    setDates();
+    setTime(true); //Sets default time from todays given date
 
     document.getElementById('name').addEventListener('input', e => {
         e.target.value = e.target.value.replace(/\d/g, '');
@@ -20,13 +19,22 @@ window.onload = () => {
     });
 
     date.addEventListener('change', e => {
+        console.log('date month: ' + dateInfo[1]);
+        console.log('date day: ' + dateInfo[2]);
+        console.log('today mnt: ' + (today.getMonth() + 1));
+        console.log('today day: ' + today.getDate());
         if (!dateChecker(dateInfo, today)) { //Entered date outside of range or bad date
             date.placeholder = 'Invalid date';
             e.target.value = '';
         }
-        // else {
-            console.log(date.value);
-        // }
+        else if (dateInfo[1] == (today.getMonth() + 1) && dateInfo[2] == today.getDate()){
+            console.log('ef');
+            setTime(true);
+        }
+        else {
+            console.log('e');
+            setTime(false);
+        }
     });
 
     document.getElementById('guests').addEventListener('input', e => {
@@ -79,17 +87,29 @@ window.onload = () => {
 
 };
 
-setDates = today => {
+setDates = () => {
 
-    let date = $('#date');
+    let date = $('#date'),
+        today = new Date();
 
     date.datepicker({
         'minDate': today,
-        'maxDate': '+183d'
+        'maxDate': '+183d',
+        onSelect: function(dateStr) {
+            // alert($(this).datepicker('getDate'))}
+
+            let dateTotal = today.getDate() + today.getFullYear() + today.getMonth() + 1;
+
+            date.val().match(/(\d{0,2})(\d{0,2})(\d{0,4})/g).forEach(element => {
+                dateTotal -= parseInt(element) ? parseInt(element) : 0;
+            });
+
+            dateTotal ? setTime(false) : setTime(true);
+        }
     });
 
     date.datepicker(
-        'setDate', today
+        'setDate', today,
     );
 
 };
@@ -128,16 +148,18 @@ dayCalc = (date, today) => {
     }
 };
 
-setTime = (time, today) => {
+setTime = (date) => {
 
-    let resTime = (today.getHours() > 12 ? (today.getHours() - 11) + ':30pm' :
-                    (today.getHours() + 1) + ':30am');
+    let today = new Date(),
+        time = $('#time'),
+        resTime = !date ? '7:30AM' : ((today.getHours() > 12 ? (today.getHours() - 11) + ':30pm' :
+                    (today.getHours() + 1) + ':30am'));
 
     time.timepicker({
             'disableTextInput': true,
             'forceRoundTime': true,
             'maxTime': '11:30PM',
-            'minTime': '7:30am',//resTime
+            'minTime': resTime.toString(),
             'selectOnBlur': true,
             'step': 15,
         }
