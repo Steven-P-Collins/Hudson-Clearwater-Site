@@ -19,17 +19,15 @@ window.onload = () => {
     });
 
     date.addEventListener('change', e => {
-        console.log('date month: ' + dateInfo[1]);
-        console.log('date day: ' + dateInfo[2]);
-        console.log('today mnt: ' + (today.getMonth() + 1));
-        console.log('today day: ' + today.getDate());
         if (!dateChecker(dateInfo, today)) { //Entered date outside of range or bad date
             date.placeholder = 'Invalid date';
             e.target.value = '';
+            setTime(false);
         }
         else if (dateInfo[1] == (today.getMonth() + 1) && dateInfo[2] == today.getDate()){
-            console.log('ef');
+            console.log('jwehvc ' + $('#time').val());
             setTime(true);
+            console.log('after: ' + $('#time').val());
         }
         else {
             console.log('e');
@@ -56,32 +54,6 @@ window.onload = () => {
     });
 
     document.getElementsByClassName('form')[0].addEventListener('submit', e => {
-        // let dateTotal = today.getDate() + today.getFullYear() + today.getMonth() + 1;
-        //
-        // date.value.match(/(\d{0,2})(\d{0,2})(\d{0,4})/g).forEach(element => {
-        //     dateTotal -= parseInt(element) ? parseInt(element) : 0;
-        // });
-        //
-        // if (!dateTotal) { //If dates are the same value == 0
-        //     let selectedTime = time.val().match(/(\d{0,2})([:])(\d{0,2})([ap])/);
-        //
-        //     selectedTime[0] = parseInt(selectedTime[1]) + parseInt(selectedTime[3]) +
-        //         (selectedTime[4] === 'p' ? 12 : 0);
-        //
-        //     console.log(selectedTime);
-        //
-        //     // if (selectedTime.match(/[p]/g)) {
-        //     //     console.log('yay');
-        //     // }
-        //
-        //     // console.log(selectedTime.match(/[p]/g));
-        //
-        //     let currentTime = new Date(); //Needed to update time dynamically
-        //
-        //     currentTime = currentTime.getHours() + currentTime.getMinutes();
-        //
-        //     console.log(currentTime);
-        // }
 
     });
 
@@ -96,8 +68,6 @@ setDates = () => {
         'minDate': today,
         'maxDate': '+183d',
         onSelect: function(dateStr) {
-            // alert($(this).datepicker('getDate'))}
-
             let dateTotal = today.getDate() + today.getFullYear() + today.getMonth() + 1;
 
             date.val().match(/(\d{0,2})(\d{0,2})(\d{0,4})/g).forEach(element => {
@@ -152,29 +122,23 @@ setTime = (date) => {
 
     let today = new Date(),
         time = $('#time'),
-        resTime = !date ? '7:30AM' : ((today.getHours() > 12 ? (today.getHours() - 11) + ':30pm' :
-                    (today.getHours() + 1) + ':30am'));
+        resTime = date ? ((today.getHours() > 12 ? (today.getHours() - 11) + ':30PM' :
+                    (today.getHours() + 1) + ':30AM')) : '7:30AM';
+
+    resTime = resTime.toString();
 
     time.timepicker({
             'disableTextInput': true,
             'forceRoundTime': true,
             'maxTime': '11:30PM',
-            'minTime': resTime.toString(),
+            'minTime': resTime,
             'selectOnBlur': true,
             'step': 15,
         }
     );
 
-    if (today.getHours() < 6) {
-        time.timepicker(
-            'setTime', '7:00pm' //7:00pm default
-        )
-    }
-    else {
-        time.timepicker(
-            'setTime', resTime
-        );
-    }
+    time.timepicker('setTime', today.getHours() < 6 ? '7:00PM' : resTime);
+
 };
 
 submit = () => {
