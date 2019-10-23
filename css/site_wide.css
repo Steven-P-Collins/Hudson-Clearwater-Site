@@ -4,11 +4,15 @@ a, a:hover, p {
 }
 
 body {
-    font-family: "Engravers MT", serif;
-    font-size: .875rem;
+    /*font-family: "Engravers MT", serif;*/
+    /*font-size: .875rem;*/
+    text-decoration: none;
+    font-family: 'Times';
+
 }
 
 h5 {
+    font-family: "Engravers MT", serif;
     margin: 0 0 .8rem;
 }
 
@@ -64,7 +68,7 @@ select {
 }
 
 a:hover {
-    font-family: "Engravers MT Bold", Serif;
+    font-family: "Engravers MT Bold", serif;
 }
 
 /*todo Saving for when menus change from pdf forms*/

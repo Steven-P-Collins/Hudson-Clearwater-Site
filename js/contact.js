@@ -25,9 +25,8 @@ window.onload = () => {
             setTime(false);
         }
         else if (dateInfo[1] == (today.getMonth() + 1) && dateInfo[2] == today.getDate()){
-            console.log('jwehvc ' + $('#time').val());
+            console.log('ef');
             setTime(true);
-            console.log('after: ' + $('#time').val());
         }
         else {
             console.log('e');
@@ -60,14 +59,13 @@ window.onload = () => {
 };
 
 setDates = () => {
-
     let date = $('#date'),
         today = new Date();
 
     date.datepicker({
         'minDate': today,
         'maxDate': '+183d',
-        onSelect: function(dateStr) {
+        onSelect: function() {
             let dateTotal = today.getDate() + today.getFullYear() + today.getMonth() + 1;
 
             date.val().match(/(\d{0,2})(\d{0,2})(\d{0,4})/g).forEach(element => {
@@ -81,11 +79,9 @@ setDates = () => {
     date.datepicker(
         'setDate', today,
     );
-
 };
 
 dateChecker = (date, today) => {
-
     switch (true) {
         case date[1] > 12:
         case date[3] < today.getFullYear():
@@ -94,7 +90,6 @@ dateChecker = (date, today) => {
         default:
             return dayCalc(date, today); //True or false depending on outcome
     }
-
 };
 
 dayCalc = (date, today) => {
@@ -117,9 +112,8 @@ dayCalc = (date, today) => {
         return todayDate - (today.getFullYear() % 4 ? 365 : 366) - dateEntered >= -183; //checks with consideration of leap year
     }
 };
-
+//$('#optionExample').timepicker('option', 'minTime', '2:00am');
 setTime = (date) => {
-
     let today = new Date(),
         time = $('#time'),
         resTime = date ? ((today.getHours() > 12 ? (today.getHours() - 11) + ':30PM' :
@@ -138,14 +132,12 @@ setTime = (date) => {
     );
 
     time.timepicker('setTime', today.getHours() < 6 ? '7:00PM' : resTime);
-
 };
 
 submit = () => {
     let time = document.getElementById('time').value;
 
     alert(time);
-
 };
 
 //high level AEM versioning what have you worked on
