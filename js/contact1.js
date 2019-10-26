@@ -8,15 +8,10 @@ window.onload = () => {
         resTime = changeTime(time, setTime(time, today)); //Sets default time from todays given date
 
     if (today.getHours() > 22) {
-        let tomorrow = new Date(today);
-        today = tomorrow.setDate(tomorrow.getDate() + 1);
+        let tomorrow = new Date();
+        tomorrow.setDate(today.getDate() + 1);
+        today = tomorrow;
     }
-    else {
-        alert('dog');
-    }
-
-    // today.getHours() < 23 ? today : today.setDate(today.getDate() + 1)
-
 
     setDates(date, today, resTime);
 
@@ -68,9 +63,6 @@ window.onload = () => {
 };
 
 setDates = (date, today, resTime) => {
-
-    console.log('pizza');
-
 
     date.datepicker({
         'minDate': today,
@@ -145,8 +137,6 @@ setTime = (time, today) => {
         earliestTime = (hours > 12 ?
             (hours - 11) + ':30PM' : (hours > 10) ?
                 (hours + 1) + ':30PM' : (hours + 1) + ':30AM');
-
-    console.log(hours);
 
     time.timepicker({
             'disableTextInput': true,
