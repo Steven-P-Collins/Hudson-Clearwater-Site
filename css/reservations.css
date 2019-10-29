@@ -1,11 +1,11 @@
 body {
-    font-family: Serif;
+    font-family: serif;
     font-size: 1rem;
 }
 
 a, h5 {
     display: block;
-    font-family: "Engravers MT", 'Times';
+    font-family: "Engravers MT",  serif;
     text-decoration: none !important;
 }
 

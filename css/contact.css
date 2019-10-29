@@ -43,10 +43,6 @@ form > div {
     -webkit-appearance: none;
 }
 
-.hidden {
-    visibility: hidden;
-}
-
 .ui-timepicker-wrapper {
     border: 1px solid #fff !important;
 }

@@ -13,5 +13,9 @@
 }
 
 .contact, .loc_top {
-    font-family: "Engravers MT", Times;
+    font-family: "Engravers MT", serif;
+}
+
+.not_shown {
+    display: none;
 }

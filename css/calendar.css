@@ -3,7 +3,7 @@
 .ui-widget select,
 .ui-widget textarea,
 .ui-widget button {
-    font-family: "Engravers MT", 'Times' !important;
+    font-family: "Engravers MT", serif !important;
     font-size: .875rem !important;
 }
 
@@ -11,7 +11,7 @@
     border: none !important;
     background: #fff !important;
     color: #000 !important;
-    font-family: "Engravers MT Bold", 'Times' !important;
+    font-family: "Engravers MT Bold", serif !important;
 }
 .ui-state-default,
 .ui-widget-content .ui-state-default,
@@ -39,7 +39,7 @@ html .ui-button.ui-state-disabled:active,
 .ui-button:focus {
     border: 1.5px solid #000 !important;
     background: #fff !important;
-    font-family: "Engravers MT Bold", 'Times' !important;
+    font-family: "Engravers MT Bold", serif !important;
     font-weight: normal;
     color: #000 !important;
 }
@@ -52,7 +52,7 @@ a.ui-button:active,
 .ui-button.ui-state-active:hover {
     border: 1.5px solid #000 !important;
     background: #fff !important; /*need*/
-    font-family: "Engravers MT Bold", 'Times' !important;
+    font-family: "Engravers MT Bold", serif !important;
     color: #ffffff;
 }
 
