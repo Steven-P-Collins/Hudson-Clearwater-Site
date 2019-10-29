@@ -1,3 +1,12 @@
+body {
+    font-family: "Engravers MT", serif;
+    font-size: .875rem;
+}
+
+form > div {
+    justify-content: center;
+}
+
 .btn {
     margin: .5rem auto !important;
 }

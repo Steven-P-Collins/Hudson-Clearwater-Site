@@ -1,7 +1,23 @@
-.res {
-    margin: 0 0 1rem;
+body {
+    font-family: Serif;
+    font-size: 1rem;
 }
 
-.res_title {
-    margin: 0 0 1.2rem;
+a, h5 {
+    display: block;
+    font-family: "Engravers MT", 'Times';
+    text-decoration: none !important;
+}
+
+p {
+    margin: 0 0 -.5rem;
+}
+
+.p_margin {
+    margin: 1rem 0 1rem;
+}
+
+.res {
+    display: inline-block;
+    margin: 0 0 1rem;
 }

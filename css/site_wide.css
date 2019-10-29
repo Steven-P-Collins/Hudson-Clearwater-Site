@@ -1,18 +1,19 @@
 a, a:hover, p {
     color: #000;
-    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 body {
-    /*font-family: "Engravers MT", serif;*/
-    /*font-size: .875rem;*/
+    color: #000;
+    font-family: 'Engravers MT', 'Times';
+    font-size: .875rem;
     text-decoration: none;
-    font-family: 'Times';
-
 }
 
 h5 {
-    font-family: "Engravers MT", serif;
     margin: 0 0 .8rem;
 }
 
@@ -52,7 +53,7 @@ select {
 .borders {
     border: 2px solid black;
     margin: 2%;
-    min-height: 700px;
+    min-height: 625px;
     min-width: 800px;
     outline: 1px solid black;
     outline-offset: -10px;
@@ -64,11 +65,8 @@ select {
 }
 
 .spacing {
+    display: inline-block;
     margin: auto .5rem 1rem;
-}
-
-a:hover {
-    font-family: "Engravers MT Bold", serif;
 }
 
 /*todo Saving for when menus change from pdf forms*/
