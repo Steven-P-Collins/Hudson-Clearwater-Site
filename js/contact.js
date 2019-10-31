@@ -174,8 +174,8 @@ setTime = (time, today) => {
 minGuests = (time, guests) => {
     let chosenTime = time.val().match(/(\d{0,2})(\D)(\d{0,2})(\D)/);
 
-    guests.attr('min', (parseInt(chosenTime[1]) > 4 && parseInt(chosenTime[3]) > 15 && chosenTime[4] === 'p') ||
-                            parseInt(chosenTime[1]) > 5 && chosenTime[4] === 'p' ?
+    guests.attr('min', (parseInt(chosenTime[1]) > 4 && parseInt(chosenTime[1]) < 12 && parseInt(chosenTime[3]) > 15 && chosenTime[4] === 'p') ||
+                            parseInt(chosenTime[1]) > 5 && parseInt(chosenTime[1]) < 12 && chosenTime[4] === 'p' ?
                                 '1' : '6');
 };
 
