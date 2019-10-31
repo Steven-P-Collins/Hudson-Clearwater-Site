@@ -2,6 +2,7 @@ window.onload = () => {
 
     let date = $('#date'),
         dateInfo,
+        nextDay = false,
         phone = document.getElementById('phone'),
         time = $('#time'),
         today = new Date(),
@@ -11,9 +12,10 @@ window.onload = () => {
         let tomorrow = new Date();
         tomorrow.setDate(today.getDate() + 1);
         today = tomorrow;
+        nextDay = true;
     }
 
-    setDates(date, today, resTime);
+    setDates(date, today, resTime, nextDay);
 
     document.getElementById('name').addEventListener('input', e => {
         e.target.value = e.target.value.replace(/\d/g, '');
@@ -27,10 +29,13 @@ window.onload = () => {
 
     date.change(e => {
         if (!dateChecker(dateInfo, today)) { //Entered date outside of range or bad date
-            date.attr('placeholder', 'Invalid Date');
+            date.attr('placeholder', 'Invalid Date');//jquery to set placeholder
             e.target.value = '';
         }
-        else if (dateInfo[1] === (today.getMonth() + 1).toString() && dateInfo[2] === today.getDate().toString()){
+        else if (nextDay) { //If reervation made after closed
+            resTime.anyTime();
+        }
+        else if (dateInfo[1] === (today.getMonth() + 1).toString() && parseInt(dateInfo[2]) === today.getDate()){
             resTime.lateTime();
         }
         else {
@@ -62,12 +67,18 @@ window.onload = () => {
 
 };
 
-setDates = (date, today, resTime) => {
+setDates = (date, today, resTime, nextDay) => {
 
     date.datepicker({
         'minDate': today,
         'maxDate': '+183d',
-        onSelect: function() {
+        onSelect: () => {
+
+            if (nextDay) {
+                resTime.anyTime();
+                return;
+            }
+
             let dateTotal = today.getDate() + today.getFullYear() + today.getMonth() + 1;
 
             date.val().match(/(\d{0,2})(\d{0,2})(\d{0,4})/g).forEach(element => {
@@ -136,13 +147,13 @@ setTime = (time, today) => {
     let hours = today.getHours(),
         earliestTime = (hours > 12 ?
             (hours - 11) + ':30PM' : (hours > 10) ?
-                (hours + 1) + ':30PM' : (hours + 1) + ':30AM');
+                (hours + 1) + ':30PM' : hours < 6 ? '7:30AM' : (hours + 1) + ':30AM');
 
     time.timepicker({
             'disableTextInput': true,
             'forceRoundTime': true,
             'maxTime': '11:30PM',
-            'minTime': hours < 23 ? earliestTime : '7:30AM',
+            'minTime': hours < 6 || hours > 22 ? '7:30AM' : earliestTime,
             'selectOnBlur': true,
             'step': 15
         }
