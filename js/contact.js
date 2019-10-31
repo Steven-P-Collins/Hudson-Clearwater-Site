@@ -3,7 +3,7 @@ window.onload = () => {
     let date = $('#date'),
         dateInfo,
         nextDay = false,
-        phone = document.getElementById('phone'),
+        phone = $('#phone'),
         time = $('#time'),
         today = new Date(),
         resTime = changeTime(time, setTime(time, today)); //Sets default time from todays given date
@@ -32,7 +32,7 @@ window.onload = () => {
             date.attr('placeholder', 'Invalid Date');//jquery to set placeholder
             e.target.value = '';
         }
-        else if (nextDay) { //If reervation made after closed
+        else if (nextDay) { //If reservation made after closed
             resTime.anyTime();
         }
         else if (dateInfo[1] === (today.getMonth() + 1).toString() && parseInt(dateInfo[2]) === today.getDate()){
@@ -48,14 +48,14 @@ window.onload = () => {
         e.target.value = guests[1] === '0' ? '' : guests[0];
     });
 
-    phone.addEventListener('change', e => {
+    phone.change( e => {
         if (e.target.value.length < 14) {
-            phone.placeholder = 'invalid number';
+            phone.attr('placeholder', 'Invalid Number');
             e.target.value = '';
         }
     });
 
-    phone.addEventListener('input', e => {
+    phone.on('input', e => {
         let phone = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
         e.target.value = !phone[2] ? phone[1] : '(' + phone[1] + ') ' + phone[2] +
             (phone[3] ? '-' + phone[3] : '');
@@ -160,6 +160,25 @@ setTime = (time, today) => {
     );
 
     time.timepicker('setTime', hours < 6 || hours > 22 ? '7:00PM' : earliestTime);
+
+    let chosenTime = time.val().match(/(\d{0,2})(\D)(\d{0,2})(\D)/);
+
+    if ((parseInt(chosenTime[1]) > 4 && parseInt(chosenTime[3]) > 15 && chosenTime[4] === 'p') ||
+        parseInt(chosenTime[1]) > 5 && chosenTime[4] === 'p') {
+        $('#guests').attr('min', '1');
+    }
+
+    time.on('changeTime', () => {            console.log('in');
+
+        chosenTime = time.val().match(/(\d{0,2})(\D)(\d{0,2})(\D)/);
+        if ((parseInt(chosenTime[1]) > 4 && parseInt(chosenTime[3]) > 15 && chosenTime[4] === 'p') ||
+            parseInt(chosenTime[1]) > 5 && chosenTime[4] === 'p') {
+            $('#guests').attr('min', '1');
+        }
+        else {
+            $('#guests').attr('min', '6');
+        }
+    });
 
     return earliestTime;
 };
