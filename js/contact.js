@@ -2,11 +2,12 @@ window.onload = () => {
 
     let date = $('#date'),
         dateInfo,
+        guests = $('#guests'),
         nextDay = false,
         phone = $('#phone'),
         time = $('#time'),
         today = new Date(),
-        resTime = changeTime(time, setTime(time, today)); //Sets default time from todays given date
+        resTime = changeTime(time, guests, setTime(time, today)); //Sets default time from todays given date
 
     if (today.getHours() > 22) {
         let tomorrow = new Date();
@@ -16,6 +17,7 @@ window.onload = () => {
     }
 
     setDates(date, today, resTime, nextDay);
+    minGuests(time, guests);
 
     document.getElementById('name').addEventListener('input', e => {
         e.target.value = e.target.value.replace(/\d/g, '');
@@ -43,9 +45,9 @@ window.onload = () => {
         }
     });
 
-    document.getElementById('guests').addEventListener('input', e => {
-        let guests = e.target.value.replace(/\D/g, '').match(/(\d?)(\d?)/);
-        e.target.value = guests[1] === '0' ? '' : guests[0];
+    guests.on('input', e => {
+        let numGuests = e.target.value.replace(/\D/g, '').match(/(\d?)(\d?)/);
+        e.target.value = numGuests[1] === '0' ? '' : numGuests[0];
     });
 
     phone.change( e => {
@@ -59,6 +61,10 @@ window.onload = () => {
         let phone = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
         e.target.value = !phone[2] ? phone[1] : '(' + phone[1] + ') ' + phone[2] +
             (phone[3] ? '-' + phone[3] : '');
+    });
+
+    time.on('changeTime', () => {
+        minGuests(time, guests);
     });
 
     document.getElementsByClassName('form')[0].addEventListener('submit', e => {
@@ -94,11 +100,12 @@ setDates = (date, today, resTime, nextDay) => {
     );
 };
 
-let changeTime = (domTime, todayTime) => {
+let changeTime = (domTime, guests, todayTime) => {
 
     let change = (time) => {
         domTime.timepicker('option', 'minTime', time);
         domTime.timepicker('setTime', todayTime);
+        minGuests(domTime, guests)
     };
     return {
         anyTime: () => {
@@ -161,26 +168,15 @@ setTime = (time, today) => {
 
     time.timepicker('setTime', hours < 6 || hours > 22 ? '7:00PM' : earliestTime);
 
+    return earliestTime;
+};
+
+minGuests = (time, guests) => {
     let chosenTime = time.val().match(/(\d{0,2})(\D)(\d{0,2})(\D)/);
 
-    if ((parseInt(chosenTime[1]) > 4 && parseInt(chosenTime[3]) > 15 && chosenTime[4] === 'p') ||
-        parseInt(chosenTime[1]) > 5 && chosenTime[4] === 'p') {
-        $('#guests').attr('min', '1');
-    }
-
-    time.on('changeTime', () => {            console.log('in');
-
-        chosenTime = time.val().match(/(\d{0,2})(\D)(\d{0,2})(\D)/);
-        if ((parseInt(chosenTime[1]) > 4 && parseInt(chosenTime[3]) > 15 && chosenTime[4] === 'p') ||
-            parseInt(chosenTime[1]) > 5 && chosenTime[4] === 'p') {
-            $('#guests').attr('min', '1');
-        }
-        else {
-            $('#guests').attr('min', '6');
-        }
-    });
-
-    return earliestTime;
+    guests.attr('min', (parseInt(chosenTime[1]) > 4 && parseInt(chosenTime[3]) > 15 && chosenTime[4] === 'p') ||
+                            parseInt(chosenTime[1]) > 5 && chosenTime[4] === 'p' ?
+                                '1' : '6');
 };
 
 submit = () => {
