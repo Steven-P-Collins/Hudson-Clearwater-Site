@@ -34,14 +34,8 @@ window.onload = () => {
             date.attr('placeholder', 'Invalid Date');//jquery to set placeholder
             e.target.value = '';
         }
-        else if (nextDay) { //If reservation made after closed
-            resTime.anyTime();
-        }
-        else if (parseInt(dateInfo[1]) === (today.getMonth() + 1) && parseInt(dateInfo[2]) === today.getDate()){
-            resTime.lateTime();
-        }
         else {
-            resTime.anyTime();
+            checkSameDate(date.val().match(/(\d{0,2})(\d{0,2})(\d{0,4})/g), today, resTime, nextDay);
         }
     });
 
@@ -79,12 +73,7 @@ setDates = (date, today, resTime, nextDay) => {
         'minDate': today,
         'maxDate': '+183d',
         onSelect: () => {
-            let dateTotal = date.val().match(/(\d{0,2})(\d{0,2})(\d{0,4})/g);
-            //Make function to do this
-
-            !nextDay && (parseInt(dateTotal[0]) === (today.getMonth() + 1) && parseInt(dateTotal[2]) === today.getDate())
-                ? resTime.lateTime()
-                : resTime.anyTime();
+            checkSameDate(date.val().match(/(\d{0,2})(\d{0,2})(\d{0,4})/g), today, resTime, nextDay);
         }
     });
 
@@ -93,7 +82,7 @@ setDates = (date, today, resTime, nextDay) => {
     );
 };
 
-let changeTime = (domTime, guests, todayTime) => {
+changeTime = (domTime, guests, todayTime) => {
 
     let change = (time) => {
         domTime.timepicker('option', 'minTime', time);
@@ -164,12 +153,20 @@ setTime = (time, today) => {
     return earliestTime;
 };
 
+checkSameDate = (dateTotal, today, resTime, nextDay) => {
+    !nextDay && (parseInt(dateTotal[0]) === (today.getMonth() + 1) && parseInt(dateTotal[2]) === today.getDate())
+        ? resTime.lateTime()
+        : resTime.anyTime();
+};
+
 minGuests = (time, guests) => {
     let chosenTime = time.val().match(/(\d{0,2})(\D)(\d{0,2})(\D)/);
 
-    guests.attr('min', (parseInt(chosenTime[1]) > 4 && parseInt(chosenTime[1]) < 12 && parseInt(chosenTime[3]) > 15 && chosenTime[4] === 'p') ||
-                            parseInt(chosenTime[1]) > 5 && parseInt(chosenTime[1]) < 12 && chosenTime[4] === 'p' ?
-                                '1' : '6');
+    guests.attr('min', (parseInt(chosenTime[1]) > 4 && parseInt(chosenTime[1]) < 12
+                        && parseInt(chosenTime[3]) > 15 && chosenTime[4] === 'p')
+                            || parseInt(chosenTime[1]) > 5 && parseInt(chosenTime[1]) < 12
+                               && chosenTime[4] === 'p'
+                                ? '1' : '6');
 };
 
 submit = () => {
