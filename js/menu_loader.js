@@ -16,3 +16,8 @@
 //
 //
 // console.log(breakfast.bev[0]["veg smooth"][0]["super fruit"][0]);
+
+//extra form is contact us w/submit
+//contact us to reservation request submit request
+//check mark on email styling
+//
