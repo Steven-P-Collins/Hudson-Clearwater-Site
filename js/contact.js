@@ -37,7 +37,7 @@ window.onload = () => {
         else if (nextDay) { //If reservation made after closed
             resTime.anyTime();
         }
-        else if (dateInfo[1] === (today.getMonth() + 1).toString() && parseInt(dateInfo[2]) === today.getDate()){
+        else if (parseInt(dateInfo[1]) === (today.getMonth() + 1) && parseInt(dateInfo[2]) === today.getDate()){
             resTime.lateTime();
         }
         else {
@@ -79,19 +79,12 @@ setDates = (date, today, resTime, nextDay) => {
         'minDate': today,
         'maxDate': '+183d',
         onSelect: () => {
+            let dateTotal = date.val().match(/(\d{0,2})(\d{0,2})(\d{0,4})/g);
+            //Make function to do this
 
-            if (nextDay) {
-                resTime.anyTime();
-                return;
-            }
-
-            let dateTotal = today.getDate() + today.getFullYear() + today.getMonth() + 1;
-
-            date.val().match(/(\d{0,2})(\d{0,2})(\d{0,4})/g).forEach(element => {
-                dateTotal -= parseInt(element) ? parseInt(element) : 0;
-            });
-
-            dateTotal ? resTime.anyTime() : resTime.lateTime();
+            !nextDay && (parseInt(dateTotal[0]) === (today.getMonth() + 1) && parseInt(dateTotal[2]) === today.getDate())
+                ? resTime.lateTime()
+                : resTime.anyTime();
         }
     });
 
