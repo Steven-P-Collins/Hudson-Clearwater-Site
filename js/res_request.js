@@ -45,23 +45,12 @@ window.onload = () => {
         minGuests(time, guests);
     });
 
-    document.getElementsByClassName('form')[0].addEventListener('submit', e => {
-        // e.preventDefault();
+    // document.getElementsByClassName('form')[0].addEventListener('submit', e => {
         // let formValue = '';
         // $('form').serializeArray().forEach(word => {
         //     formValue += word.value + ' ';
-        //     $('form').removeAttr(word);
-        //     // console.log(word.value);
         // });
-
-        // e.target.value = formValue;
-
-        // $('form').val(formValue);
-
-        // console.log($('form').val());
-        // console.log(e.target.value);
-        // console.log($('form').serializeArray());
-    });
+    // });
 
 };
 
@@ -166,12 +155,6 @@ minGuests = (time, guests) => {
                                && chosenTime[4] === 'p'
                                 ? '1' : '6');
 };
-
-// submit = () => {
-//     let time = document.getElementById('time').value;
-//
-//     alert(time);
-// };
 
 //high level AEM versioning what have you worked on
 /*
