@@ -10,6 +10,7 @@ body {
     color: #000;
     font-family: 'Engravers MT', serif;
     font-size: .875rem;
+    overflow: hidden;
     text-decoration: none;
 }
 
@@ -67,6 +68,13 @@ select {
 .spacing {
     display: inline-block;
     margin: auto .5rem 1rem;
+}
+
+@media only screen and (min-width: 1440px) {
+    html, body {
+        height: 53vw;
+        max-height: 96%;
+    }
 }
 
 /*todo Saving for when menus change from pdf forms*/
