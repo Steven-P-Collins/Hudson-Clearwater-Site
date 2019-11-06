@@ -1,81 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="refresh" content="300">
-        <title>Hudson Clearwater Email Reservation</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="icon" type="image/png" href="../images/favicon.ico">
-        <link rel="stylesheet" href="../css/site_wide.css">
-        <link rel="stylesheet" href="../css/contact.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/timepicker@1.11.15/jquery.timepicker.min.css">
-        <link rel="stylesheet" href="../css/calendar.css">
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    </head>
-    <body class="borders">
-        <div class="container-fluid text-center justify-content-center">
-            <a href="../index.html">
-                <img class="res_logo" src="../images/HudsonClearwater-logo.gif" alt="447 Hudson Clearwater">
-            </a>
-            <h5>Reservation Request</h5>
-            <form class="form text-left" action="mailto:reservations@hudsonclearwater.com" method="post" enctype="text/plain">
-                <div class="row">
-                    <div class="col-sm-5 col-xl-4 form-group">
-                        <label for="name">Name</label>
-                        <input aria-hidden="true"  type="text" class="form-control" id="name" name="name" required>
-                    </div>
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="icon" type="image/png" href="../images/favicon.ico">
+    <link rel="stylesheet" href="../css/site_wide.css">
+    <link rel="stylesheet" href="../css/contact.css">
+</head>
+<body class="borders">
+    <div class="container-fluid text-center justify-content-center">
+        <a href="../index.html">
+            <img class="res_logo" src="../images/HudsonClearwater-logo.gif" alt="447 Hudson Clearwater">
+        </a>
+        <h5>Contact Us</h5>
+        <form class="form text-left" action="mailto:reservations@hudsonclearwater.com" method="post" enctype="text/plain">
+            <div class="row">
+                <div class="col-sm-5 col-xl-4 form-group">
+                    <label for="name">Name</label>
+                    <input aria-hidden="true"  type="text" class="form-control" id="name" name="name" required>
                 </div>
-                <div class="row">
-                    <div class="col-sm-3 col-xl-2 form-group">
-                        <label aria-hidden="true" for="date">Date</label>
-                        <input aria-expanded="true" type="text" autocomplete="off" class="form-control" id="date" name="date" required>
-                    </div>
-                    <div class="col-sm-2 col-xl-2 form-group">
-                        <label aria-hidden="true" for="time">Time</label>
-                        <input aria-expanded="true" type="text" class="form-control" id="time" name="time" required>
-                    </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-5 col-xl-4 form-group">
+                    <label for="phone">Phone Number</label>
+                    <input aria-hidden="true" type="text" class="form-control" id="phone" name="phone" required>
                 </div>
-                <div class="row">
-                    <div class="col-sm-3 col-xl-2 form-group">
-                        <label for="phone">Phone Number</label>
-                        <input aria-hidden="true" type="text" class="form-control" id="phone" name="phone" required>
-                    </div>
-                    <div class="col-sm-2 col-xl-2 form-group">
-                        <label for="guests">Guests</label>
-                        <input aria-hidden="true"  type="number" class=" form-control guests" id="guests" min="6" name="guests" required>
-                    </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-5 col-xl-4 form-group">
+                    <label for="email">Email</label>
+                    <input aria-hidden="true"  type="email" class="form-control" id="email" name="email" required>
                 </div>
-                <div class="row">
-                    <div class="col-sm-5 col-xl-4 form-group">
-                        <label for="email">Email</label>
-                        <input aria-hidden="true"  type="email" class="form-control" id="email" name="email" required>
-                    </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-5 col-xl-4 form-group">
+                    <label for="comments">Comments</label>
+                    <textarea aria-hidden="true"  class="form-control" id="comments" rows="5" name="comments"></textarea>
                 </div>
-                <div class="row">
-                    <div class="col-sm-5 col-xl-4 form-group">
-                        <label for="comments">Comments</label>
-                        <textarea aria-hidden="true"  class="form-control" id="comments" rows="2" name="comments"></textarea>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-5 form-check text-center">
-                        <input aria-hidden="true"  class="form-check-input" type="checkbox" id="pdr" name="pdr">
-                        <label class="form-check-label checkbox_label" for="pdr">
-                            Book our private dining room
-                        </label>
-                    </div>
-                </div>
-                <div class="row">
-                    <button type="submit" class="btn">Submit your request</button>
-                </div>
-            </form>
-        </div>
+            </div>
+            <div class="row">
+                <button type="submit" class="btn">Submit</button>
+            </div>
+        </form>
+    </div>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/timepicker@1.11.15/jquery.timepicker.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-        <script src="../js/contact.js"></script>
-    </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timepicker@1.11.15/jquery.timepicker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="../js/contact.js"></script>
+</body>
 </html>

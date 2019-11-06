@@ -10,7 +10,6 @@ body {
     color: #000;
     font-family: 'Engravers MT', serif;
     font-size: .875rem;
-    overflow: hidden;
     text-decoration: none;
 }
 
@@ -32,7 +31,7 @@ input, select, textarea {
 
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
+    -webkit-appearance: none !important;
     margin: 0;
 }
 
