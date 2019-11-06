@@ -46,7 +46,7 @@ window.onload = () => {
     });
 
     document.getElementsByClassName('form')[0].addEventListener('submit', e => {
-        e.preventDefault();
+        // e.preventDefault();
         // let formValue = '';
         // $('form').serializeArray().forEach(word => {
         //     formValue += word.value + ' ';
@@ -58,8 +58,8 @@ window.onload = () => {
 
         // $('form').val(formValue);
 
-        console.log($('form').val());
-        console.log(e.target.value);
+        // console.log($('form').val());
+        // console.log(e.target.value);
         // console.log($('form').serializeArray());
     });
 
