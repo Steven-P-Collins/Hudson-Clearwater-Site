@@ -2,10 +2,10 @@ window.onload = () => {
     getData();
 
     // (() => {
-        const form = $('.form')[0];
+        const form = $('.form');
 
         form.on('submit', e => {
-            e.preventDefault();
+            // e.preventDefault();
 
             const data = {},
                 formElements = form.serializeArray();
