@@ -5,7 +5,7 @@ window.onload = () => {
         const form = $('.form');
 
         form.on('submit', e => {
-            // e.preventDefault();
+            e.preventDefault();
 
             const data = {},
                 formElements = form.serializeArray();
@@ -15,21 +15,21 @@ window.onload = () => {
 
             let xhr = new XMLHttpRequest();
             xhr.open('POST', url, true);
-            // xhr.setRequestHeader('Accept', 'application/json');
-            // xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.setRequestHeader('Accept', 'application/json');
+            xhr.setRequestHeader('Content-Type', 'application/json');
 
             xhr.send(JSON.stringify(data));
 
-            // xhr.onloadend = response => {
-            //     if (response.target.status === 200) {
-            //         form.reset();
-            //         $('.btn').html('Your submission was sent');
-            //     }
-            //     else {
-            //         $('.btn').html('Shit');
-            //         // console.log(response.target.status);
-            //     }
-            // };
+            xhr.onloadend = response => {
+                if (response.target.status === 200) {
+                    form.reset();
+                    $('.btn').html('Your submission was sent');
+                }
+                else {
+                    $('.btn').html('Shit');
+                    // console.log(response.target.status);
+                }
+            };
         })
     // })();
 
