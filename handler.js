@@ -31,7 +31,7 @@ const sendEmail = (formData, callback) => {
 
 //https://gpkttqzyf6.execute-api.us-east-1.amazonaws.com/dev
 
-module.exports.siteMailer = async event => {
+module.exports.siteMailer = (event, context, callback) => {
     const formData = JSON.parse(event.body);
 
     sendEmail(formData, function(err, data) {
@@ -45,6 +45,7 @@ module.exports.siteMailer = async event => {
                 message: err ? err.message : data,
             }),
         };
+        callback(null, response);
     });
 
   // return {
