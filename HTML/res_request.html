@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <title>Hudson Clearwater Reservations</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="icon" type="image/png" href="../images/favicon.ico">
+        <link rel="shortcut icon" type="image/png" href="../favicon.ico">
         <link rel="stylesheet" href="../css/site_wide.css">
         <link rel="stylesheet" href="../css/contact.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/timepicker@1.11.15/jquery.timepicker.min.css">
@@ -17,7 +17,8 @@
                 <img class="res_logo" src="../images/HudsonClearwater-logo.gif" alt="447 Hudson Clearwater">
             </a>
             <h5>Reservation Request</h5>
-            <form class="form text-left" action="mailto:reservations@hudsonclearwater.com" method="post" enctype="text/plain">
+<!--            <form class="form text-left" action="mailto:reservations@hudsonclearwater.com" method="post" enctype="text/plain">-->
+            <form class="form text-left" action="../php/mail.php" method="post" enctype="text/plain">
                 <div class="row">
                     <div class="col-sm-5 col-xl-4 form-group">
                         <label for="name">Name</label>
