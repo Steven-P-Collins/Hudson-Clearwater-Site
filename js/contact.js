@@ -14,7 +14,7 @@ window.onload = () => {
             const url = 'https://gpkttqzyf6.execute-api.us-east-1.amazonaws.com/dev/static-site-mailer';
 
             let xhr = new XMLHttpRequest();
-            xhr.open(form.method, url, true);
+            xhr.open('POST', url, true);
             xhr.setRequestHeader('Accept', 'application/json; charset=utf-8');
             xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
 
@@ -27,7 +27,7 @@ window.onload = () => {
                 }
                 else {
                     $('.btn').html('Shit');
-                    console.log(response.target.status);
+                    // console.log(response.target.status);
                 }
             };
         })

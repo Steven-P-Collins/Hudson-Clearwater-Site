@@ -40,7 +40,6 @@ module.exports.siteMailer = (event, context, callback) => {
             headers: {
                 'Content-Type': 'application/json',
                 'Access-Control-Allow-Origin': 'https://steven-p-collins.github.io',
-                'Access-Control-Request-Header': 'post',
             },
             body: JSON.stringify({
                 message: err ? err.message : data,
