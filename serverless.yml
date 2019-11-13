@@ -67,7 +67,7 @@ functions:
     handler: handler.siteMailer
     events:
       - http:
-          method: post
+          method: POST
           path: static-site-mailer
           cors: true
 #    The following are a few example events you can configure

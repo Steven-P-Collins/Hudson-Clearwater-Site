@@ -27,7 +27,7 @@ window.onload = () => {
                 }
                 else {
                     $('.btn').html('Shit');
-                    console.error(JSON.parse(response.target.response).message);
+                    console.log(response.target.status);
                 }
             };
         })
