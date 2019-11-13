@@ -20,16 +20,16 @@ window.onload = () => {
 
             xhr.send(JSON.stringify(data));
 
-            xhr.onloadend = response => {
-                if (response.target.status === 200) {
-                    form.reset();
-                    $('.btn').html('Your submission was sent');
-                }
-                else {
-                    $('.btn').html('Shit');
-                    // console.log(response.target.status);
-                }
-            };
+            // xhr.onloadend = response => {
+            //     if (response.target.status === 200) {
+            //         form.reset();
+            //         $('.btn').html('Your submission was sent');
+            //     }
+            //     else {
+            //         $('.btn').html('Shit');
+            //         // console.log(response.target.status);
+            //     }
+            // };
         })
     })();
 
