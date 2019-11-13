@@ -26,8 +26,8 @@ window.onload = () => {
                     $('.btn').html('Your submission was sent');
                 }
                 else {
-                    $('.btn').html('Shit');
-                    // console.log(response.target.status);
+                    $('.btn').html('Something went wrong');
+                    console.error(JSON.parse(response.target.response).message);
                 }
             };
         })
