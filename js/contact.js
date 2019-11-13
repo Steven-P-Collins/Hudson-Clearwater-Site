@@ -14,7 +14,7 @@ window.onload = () => {
             const url = 'https://gpkttqzyf6.execute-api.us-east-1.amazonaws.com/dev/static-site-mailer';
 
             let xhr = new XMLHttpRequest();
-            xhr.open('POST', url, true);
+            xhr.open(form.method, url, true);
             xhr.setRequestHeader('Accept', 'application/json');
             xhr.setRequestHeader('Content-Type', 'application/json');
 
