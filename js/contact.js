@@ -22,7 +22,7 @@ window.onload = () => {
 
             xhr.onloadend = response => {
                 if (response.target.status === 200) {
-                    form.reset();
+                    form.trigger('reset');
                     $('.btn').html('Your submission was sent');
                 }
                 else {
