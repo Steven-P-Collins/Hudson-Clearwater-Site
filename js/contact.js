@@ -15,8 +15,8 @@ window.onload = () => {
 
             let xhr = new XMLHttpRequest();
             xhr.open('POST', url, true);
-            xhr.setRequestHeader('Accept', 'application/json');
-            xhr.setRequestHeader('Content-Type', 'application/json');
+            // xhr.setRequestHeader('Accept', 'application/json');
+            // xhr.setRequestHeader('Content-Type', 'application/json');
 
             xhr.send(JSON.stringify(data));
 
