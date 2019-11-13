@@ -39,7 +39,7 @@ module.exports.siteMailer = async event => {
             statusCode: err ? 500 : 200,
             headers: {
                 'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': 'steven-p-collins.github.io',
+                'Access-Control-Allow-Origin': 'steven-p-collins.github.io/HTML/contact.html',
             },
             body: JSON.stringify({
                 message: err ? err.message : data,
