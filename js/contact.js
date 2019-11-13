@@ -11,7 +11,7 @@ window.onload = () => {
                 formElements = form.serializeArray();
             formElements.map(input => (data[input.name] = input.value));
 
-            const url = 'https://gpkttqzyf6.execute-api.us-east-1.amazonaws.com/dev';
+            const url = 'https://gpkttqzyf6.execute-api.us-east-1.amazonaws.com/dev/static-site-mailer';
 
             let xhr = new XMLHttpRequest();
             xhr.open(form.method, url, true);
