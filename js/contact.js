@@ -2,7 +2,7 @@ window.onload = () => {
     getData();
 
     // (() => {
-        const form = $('.form');
+        const form = $('.form')[0];
 
         form.on('submit', e => {
             e.preventDefault();
