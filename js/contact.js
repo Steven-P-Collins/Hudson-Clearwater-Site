@@ -1,7 +1,7 @@
 window.onload = () => {
     getData();
 
-    (() => {
+    // (() => {
         const form = $('.form');
 
         form.on('submit', e => {
@@ -31,7 +31,7 @@ window.onload = () => {
             //     }
             // };
         })
-    })();
+    // })();
 
 };
 
