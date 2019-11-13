@@ -1,5 +1,38 @@
 window.onload = () => {
     getData();
+
+    (() => {
+        const form = $('.form');
+
+        form.on('submit', e => {
+            e.preventDefault();
+
+            const data = {},
+                formElements = form.serializeArray();
+            formElements.map(input => (data[input.name] = input.value));
+
+            const url = 'https://gpkttqzyf6.execute-api.us-east-1.amazonaws.com/dev';
+
+            let xhr = new XMLHttpRequest();
+            xhr.open(form.method, url, true);
+            xhr.setRequestHeader('Accept', 'application/json; charset=utf-8');
+            xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
+
+            xhr.send(JSON.stringify(data));
+
+            xhr.onloadend = response => {
+                if (response.target.status === 200) {
+                    form.reset();
+                    $('.btn').html('Your submission was sent');
+                }
+                else {
+                    $('.btn').html('Shit');
+                    console.log(JSON.parse(response.target.response).message);
+                }
+            };
+        })
+    })();
+
 };
 
 const getData = () => {

@@ -1,0 +1,14 @@
+{
+  "name": "static-site-mailer",
+  "version": "1.0",
+  "description": "Static site for HCW",
+  "main": "index.html",
+  "repository": "NULL",
+  "author": "Steven Collins",
+  "license": "---",
+  "private": true,
+  "dependencies": {
+    "aws-sdk": "^2.570.0",
+    "serverless": "^1.57.0"
+  }
+}
