@@ -34,29 +34,27 @@ const formSubmit = () => {
         const data = {},
             formElements = form.serializeArray();
 
-        xhrRequest(form, JSON.stringify(formElements.map(input =>
-            (data[input.name] = input.value))));
+        xhrRequest(form, formElements.map(input =>
+            (data[input.name] = input.value)));
+
+        const url = 'https://gpkttqzyf6.execute-api.us-east-1.amazonaws.com/dev/static-site-mailer';
+
+        let xhr = new XMLHttpRequest();
+        xhr.open('POST', url, true);
+        xhr.setRequestHeader('Accept', 'application/json');
+        xhr.setRequestHeader('Content-Type', 'application/json');
+
+        xhr.send(JSON.stringify(formElements));
+
+        xhr.onloadend = response => {
+            if (response.target.status === 200) {
+                form.trigger('reset');
+                $('.btn').html('Your submission was sent');
+            }
+            else {
+                $('.btn').html('Something went wrong');
+                console.error(JSON.parse(response.target.response).message);
+            }
+        };
     })
-};
-
-const xhrRequest = (form, jsonData) => {
-    const url = 'https://gpkttqzyf6.execute-api.us-east-1.amazonaws.com/dev/static-site-mailer';
-
-    let xhr = new XMLHttpRequest();
-    xhr.open('POST', url, true);
-    xhr.setRequestHeader('Accept', 'application/json');
-    xhr.setRequestHeader('Content-Type', 'application/json');
-
-    xhr.send(jsonData);
-
-    xhr.onloadend = response => {
-        if (response.target.status === 200) {
-            form.trigger('reset');
-            $('.btn').html('Your submission was sent');
-        }
-        else {
-            $('.btn').html('Something went wrong');
-            console.error(JSON.parse(response.target.response).message);
-        }
-    };
 };
