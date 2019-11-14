@@ -1,6 +1,37 @@
 window.onload = () => {
     getData();
-    formSubmit();
+
+    const form = $('.form');
+
+    form.on('submit', e => {
+        e.preventDefault();
+
+        const data = {},
+            formElements = form.serializeArray();
+
+        formElements.map(input => (data[input.name] = input.value));
+
+        const url = 'https://gpkttqzyf6.execute-api.us-east-1.amazonaws.com/dev/static-site-mailer';
+
+        let xhr = new XMLHttpRequest();
+        xhr.open('POST', url, true);
+        xhr.setRequestHeader('Accept', 'application/json');
+        xhr.setRequestHeader('Content-Type', 'application/json');
+
+        xhr.send(JSON.stringify(data));
+
+        xhr.onloadend = response => {
+            if (response.target.status === 200) {
+                form.trigger('reset');
+                $('.btn').html('Your submission was sent');
+            }
+            else {
+                $('.btn').html('Something went wrong');
+                console.error(JSON.parse(response.target.response).message);
+            }
+        };
+    })
+
 };
 
 const getData = () => {
@@ -23,37 +54,4 @@ const getData = () => {
             (phone[3] ? '-' + phone[3] : '');
     });
 
-};
-
-const formSubmit = () => {
-    const form = $('.form');
-
-    form.on('submit', e => {
-        e.preventDefault();
-
-        const data = {},
-            formElements = form.serializeArray();
-
-        formElements.map(input => (data[input.name] = input.value));
-
-        const url = 'https://gpkttqzyf6.execute-api.us-east-1.amazonaws.com/dev/static-site-mailer';
-
-        let xhr = new XMLHttpRequest();
-        xhr.open('POST', url, true);
-        xhr.setRequestHeader('Accept', 'application/json');
-        xhr.setRequestHeader('Content-Type', 'application/json');
-
-        xhr.send(JSON.stringify(formElements));
-
-        xhr.onloadend = response => {
-            if (response.target.status === 200) {
-                form.trigger('reset');
-                $('.btn').html('Your submission was sent');
-            }
-            else {
-                $('.btn').html('Something went wrong');
-                console.error(JSON.parse(response.target.response).message);
-            }
-        };
-    })
 };
