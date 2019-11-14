@@ -6,7 +6,7 @@ const SES = new AWS.SES();
 const sendEmail = (formData, callback) => {
     const emailParams = {
         Source: 'stevencollins2109@gmail.com',
-        ReplyToAddresses: [],
+        ReplyToAddresses: [formData.email],
         Destination: {
             ToAddresses: ['stevencollins2109@gmail.com'],
         },
@@ -14,19 +14,34 @@ const sendEmail = (formData, callback) => {
             Body: {
                 Text: {
                     Charset: 'UTF-8',
-                    Data: formData.comments + '\n\nName: ' + formData.name
-                            + '\nEmail: ' + formData.email,
+                    Data: parseData(formData),
                 },
             },
             Subject: {
                 Charset: 'UTF-8',
-                Data: 'New Message',
+                Data: formData.date ? 'Reservation Request' : 'Contact Us Request',
             },
         },
     };
 
     SES.sendEmail(emailParams, callback);
 
+};
+
+const parseData = formData => {
+    return formData.date
+            ? formData.name + ' ' + formData.date + ' '
+            + formData.time + ' ' + formData.guests + ' '
+            + formData.phone + ' ' + formData.email + '\n'
+            + (formData.pdr
+                ? 'We are interested in booking the PDR. \n'
+                : '')
+            + (formData.comments
+                ? 'Comments: ' + formData.comments
+                : '')
+            : 'Hello HCW, \n\n' + formData.comments + '\n\n'
+            + 'Best, \n' + formData.name + '\n'
+            + formData.phone + '\n' + formData.email + '\n';
 };
 
 module.exports.siteMailer = (event, context, callback) => {

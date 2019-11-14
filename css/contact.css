@@ -19,6 +19,10 @@ form > div {
     margin: .27rem auto !important;
 }
 
+.form-check-input:disabled~.form-check-label {
+    color: #000 !important;
+}
+
 @media only screen and (min-width: 885px) {
     .form-check-input {
         margin: .27rem auto auto -1.25rem !important;
@@ -37,6 +41,10 @@ form > div {
 
 .form-control {
     padding: .1rem .3rem !important;
+}
+
+.form-control:disabled {
+    background-color: #fff !important;
 }
 
 .guests {

@@ -19,6 +19,7 @@ window.onload = () => {
     minGuests(time, guests);
 
     getData(); //From Contact page
+    form(); //From Contact page
 
     date.on('input', e => {
         dateInfo = e.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,2})(\d{0,4})/);
@@ -44,13 +45,6 @@ window.onload = () => {
     time.on('changeTime', () => {
         minGuests(time, guests);
     });
-
-    // document.getElementsByClassName('form')[0].addEventListener('submit', e => {
-        // let formValue = '';
-        // $('form').serializeArray().forEach(word => {
-        //     formValue += word.value + ' ';
-        // });
-    // });
 
 };
 

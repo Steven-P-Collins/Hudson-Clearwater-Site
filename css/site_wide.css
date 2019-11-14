@@ -13,6 +13,10 @@ body {
     text-decoration: none;
 }
 
+button:disabled {
+    opacity: 1 !important;
+}
+
 h5 {
     margin: 0 0 .8rem;
 }
