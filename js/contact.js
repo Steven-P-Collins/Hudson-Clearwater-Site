@@ -34,8 +34,7 @@ const formSubmit = () => {
         const data = {},
             formElements = form.serializeArray();
 
-        xhrRequest(form, formElements.map(input =>
-            (data[input.name] = input.value)));
+        formElements.map(input => (data[input.name] = input.value));
 
         const url = 'https://gpkttqzyf6.execute-api.us-east-1.amazonaws.com/dev/static-site-mailer';
 
