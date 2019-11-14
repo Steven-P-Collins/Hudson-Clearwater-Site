@@ -21,6 +21,7 @@ form > div {
 
 .form-check-input:disabled~.form-check-label {
     color: #000 !important;
+    opacity: 1 !important;
 }
 
 @media only screen and (min-width: 885px) {
@@ -45,6 +46,8 @@ form > div {
 
 .form-control:disabled {
     background-color: #fff !important;
+    color: #000 !important;
+    opacity: 1 !important;
 }
 
 .guests {
