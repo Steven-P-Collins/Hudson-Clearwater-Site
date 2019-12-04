@@ -9,6 +9,14 @@ a, h5 {
     text-decoration: none !important;
 }
 
+.nye_res {
+    margin: 1rem 0 -.5rem;
+}
+
+.nye_res_resy {
+    margin: 0 0 1rem;
+}
+
 p {
     margin: 0 0 -.5rem;
 }
