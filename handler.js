@@ -33,8 +33,8 @@ const parseData = formData => {
             ? 'Date: ' + formData.date + '\n'
                 + 'Time: ' + formData.time + '\n'
                 + 'Guests: ' + formData.guests + '\n'
-                + 'PDR: ' + formData.pdr ? 'Yes\n' : 'No\n'
-                + 'Comments: ' + formData.comments ? formData.comments + '\n': 'none\n'
+                + 'PDR: ' + (formData.pdr ? 'Yes\n' : 'No\n')
+                + 'Comments: ' + (formData.comments ? formData.comments + '\n': 'none\n')
                 + 'Name: ' + formData.name + '\n'
                 + 'Phone: ' + formData.phone + '\n'
                 + 'Email: ' + formData.email
