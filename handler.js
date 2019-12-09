@@ -30,18 +30,17 @@ const sendEmail = (formData, callback) => {
 
 const parseData = formData => {
     return formData.date
-            ? formData.name + ' ' + formData.date + ' '
-            + formData.time + ' ' + formData.guests + ' '
-            + formData.phone + ' ' + formData.email + '\n'
-            + (formData.pdr
-                ? 'We are interested in booking the PDR. \n'
-                : '')
-            + (formData.comments
-                ? 'Comments: ' + formData.comments
-                : '')
+            ? 'Date: ' + formData.date + '\n'
+                + 'Time: ' + formData.time + '\n'
+                + 'Guests: ' + formData.guests + '\n'
+                + 'PDR: ' + formData.pdr ? 'Yes\n' : 'No\n'
+                + 'Comments: ' + formData.comments ? formData.comments + '\n': 'none\n'
+                + 'Name: ' + formData.name + '\n'
+                + 'Phone: ' + formData.phone + '\n'
+                + 'Email: ' + formData.email
             : 'Hello HCW, \n\n' + formData.comments + '\n\n'
-            + 'Best, \n' + formData.name + '\n'
-            + formData.phone + '\n' + formData.email + '\n';
+                + 'Best, \n' + formData.name + '\n'
+                + formData.phone + '\n' + formData.email + '\n';
 };
 
 module.exports.siteMailer = (event, context, callback) => {
