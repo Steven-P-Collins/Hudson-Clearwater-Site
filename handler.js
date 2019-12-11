@@ -51,7 +51,7 @@ module.exports.siteMailer = (event, context, callback) => {
             statusCode: err ? 500 : 200,
             headers: {
                 'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': 'https://steven-p-collins.github.io',
+                'Access-Control-Allow-Origin': 'http://www.hudsonclearwater.com',
             },
             body: JSON.stringify({
                 message: err ? err.message : data,
