@@ -5,10 +5,10 @@ const SES = new AWS.SES();
 
 const sendEmail = (formData, callback) => {
     const emailParams = {
-        Source: 'stevencollins2109@gmail.com',
+        Source: 'reservations@hudsonclearwater.com',
         ReplyToAddresses: [formData.email],
         Destination: {
-            ToAddresses: ['stevencollins2109@gmail.com'],
+            ToAddresses: ['reservations@hudsonclearwater.com'],
         },
         Message: {
             Body: {
