@@ -6,7 +6,7 @@ body {
 a, h5 {
     display: block;
     font-family: "Engravers MT",  serif;
-    text-decoration: none !important;
+    text-decoration: none;
 }
 
 .nye_res {
