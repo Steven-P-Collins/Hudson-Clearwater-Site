@@ -150,10 +150,6 @@ minGuests = (time, guests) => {
                                 ? '1' : '6');
 };
 
-//high level AEM versioning what have you worked on
-/*
-convo with vp
- */
 
 
 

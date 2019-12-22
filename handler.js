@@ -4,6 +4,11 @@ const AWS = require('aws-sdk');
 const SES = new AWS.SES();
 
 const sendEmail = (formData, callback) => {
+    let moment = require('moment-timezone'),
+        today = new Date();
+
+    moment(today.getTime()).tz("America/New_York").format("MM-DD-YYYY");
+
     const emailParams = {
         Source: 'reservations@hudsonclearwater.com',
         ReplyToAddresses: [formData.email],
@@ -19,13 +24,15 @@ const sendEmail = (formData, callback) => {
             },
             Subject: {
                 Charset: 'UTF-8',
-                Data: formData.date ? 'Reservation Request' : 'Contact Us Request',
+                Data: formData.date
+                    ? 'Rez for ' + formData.name + ', ' + formData.guests + ' guests on ' + formData.date
+                    : 'Email from ' + formData.name + ' on ' + (today.getMonth() + 1) + '/' + (today.getDate()) + '/' + today.getFullYear(),
             },
         },
     };
 
     SES.sendEmail(emailParams, callback);
-
+    //yarn sls deploy -v
 };
 
 const parseData = formData => {
