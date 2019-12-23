@@ -26,10 +26,14 @@ const getData = () => {
 };
 
 const form = () => {
-    const form = $('.form');
+    const form = $('.form'),
+        btn = $('.btn');
 
     form.on('submit', e => {
         e.preventDefault();
+
+        btn.html('Sending...');
+        btn.prop('disabled', true);
 
         const data = {},
             formElements = form.serializeArray();
@@ -46,17 +50,15 @@ const form = () => {
         xhr.send(JSON.stringify(data));
 
         xhr.onloadend = response => {
-            const btn = $('.btn');
             if (response.target.status === 200) {
                 formElements.forEach(input => {
                     $('#' + input.name).prop('disabled', true);
                 });
                 btn.html('Your submission was sent');
-                btn.prop('disabled', true);
             }
             else {
+                btn.prop('disabled', false);
                 btn.html('Something went wrong, Try again');
-                console.error(JSON.parse(response.target.response).message);
             }
         };
     })
