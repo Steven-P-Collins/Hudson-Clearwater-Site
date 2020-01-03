@@ -25,7 +25,7 @@ const sendEmail = (formData, callback) => {
             Subject: {
                 Charset: 'UTF-8',
                 Data: formData.date
-                    ? 'Rez for ' + formData.name + ', ' + formData.guests + ' guests on ' + formData.date
+                    ? 'Rez for ' + formData.name + ' on ' + formData.date
                     : 'Email from ' + formData.name + ' on ' + (today.getMonth() + 1) + '/' + (today.getDate()) + '/' + today.getFullYear(),
             },
         },
