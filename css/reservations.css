@@ -13,8 +13,12 @@ a, h5 {
     margin: 1rem 0 -.5rem;
 }
 
-.nye_res_resy {
+.nye_res_resy, .vday_res_resy {
     margin: 0 0 1rem;
+}
+
+.nye_menu {
+    margin-bottom: -.5rem !important;
 }
 
 p {
