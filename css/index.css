@@ -19,3 +19,8 @@
 .not_shown {
     display: none;
 }
+
+.covid {
+    margin: 1rem 0 1.5rem 0;
+    color: #ff0000;
+}
