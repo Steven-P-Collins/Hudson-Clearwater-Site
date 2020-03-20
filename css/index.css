@@ -40,3 +40,7 @@
 a:hover.donation_link {
     color: #fff !important;
 }
+
+.covid-spacing {
+    margin: 1rem 0 0;
+}
