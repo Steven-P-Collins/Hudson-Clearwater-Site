@@ -9,7 +9,7 @@
 }
 
 .loc_top {
-    margin: -5rem 0 -.3rem; /*Revert to -5 after new years*/
+    margin: -8rem 0 -.3rem; /*Was -7 or -5*/
 }
 
 .contact, .loc_top {
@@ -23,20 +23,4 @@
 .covid {
     margin: 1rem 0 1.5rem 0 !important;
     color: #B6010C;
-}
-
-.donation {
-    margin: -10rem 0 3rem;
-}
-
-.donation_link {
-    background: #B6010C;
-    color: #fff;
-    display: inline-block;
-    height: 2rem;
-    padding: .35rem 4% 0;
-}
-
-a:hover.donation_link {
-    color: #fff !important;
 }
