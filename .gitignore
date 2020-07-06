@@ -7,3 +7,4 @@ jspm_packages
 .idea
 .DS_Store
 server_info.png
+package-lock.json
