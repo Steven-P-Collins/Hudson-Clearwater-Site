@@ -27,7 +27,7 @@
 
 .order_online {
     background-repeat: no-repeat;
-    /*font-family: SQMarket-medium, 'Helvetica Neue', sans-serif; */
+    font-family: "Engravers MT", serif;
     font-weight: bold;
     text-decoration: none;
     position: relative; top: 0px; left: 0px;
@@ -41,9 +41,9 @@
     white-space: nowrap;
     display: inline-block;
     padding: 0px 20px 0px 20px;
-    border-radius: 4px;
+    border-radius: 0 4px 4px 0;
     text-align: left;
-    font-size: 16px;
+    font-size: .875rem;
     background-color: rgb(255, 255, 255);
     border: 2px solid rgb(45, 60, 72);
     color: rgb(45, 60, 72);
@@ -55,7 +55,6 @@
 
 .order_online_caviar {
     background-repeat: no-repeat;
-    /*font-family: SQMarket-medium, 'Helvetica Neue', sans-serif; */
     font-weight: bold;
     text-decoration: none;
     position: relative; top: 0px; left: 0px;
@@ -69,11 +68,12 @@
     white-space: nowrap;
     display: inline-block;
     padding: 0px 25px 0px 25px;
-    border-radius: 4px;
+    border-radius: 4px 0 0 4px;
     text-align: left;
     font-size: 16px;
     background-color: rgb(255, 255, 255);
     border: 2px solid rgb(45, 60, 72);
+    border-right: 0px;
     color: rgb(45, 60, 72);
     background-position: 50%;
     background-size: 22px, 2px 54px;
