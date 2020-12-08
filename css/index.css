@@ -41,7 +41,7 @@
     white-space: nowrap;
     display: inline-block;
     padding: 0px 20px 0px 20px;
-    border-radius: 0 4px 4px 0;
+    /*border-radius: 0 4px 4px 0;*/
     text-align: left;
     font-size: .875rem;
     background-color: #ffffff;
@@ -65,7 +65,7 @@
     white-space: nowrap;
     display: inline-block;
     padding: 0px 25px 0px 25px;
-    border-radius: 4px 0 0 4px;
+    /*border-radius: 4px 0 0 4px;*/
     text-align: left;
     font-size: 16px;
     background-color: #ffffff;
