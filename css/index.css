@@ -20,9 +20,8 @@
     display: none;
 }
 
-.covid {
+.not_covid {
     margin: 1rem 0 1.5rem 0 !important;
-    color: #B6010C;
 }
 
 .order_online {
