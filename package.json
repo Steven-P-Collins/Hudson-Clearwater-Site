@@ -8,7 +8,7 @@
   "license": "---",
   "private": true,
   "dependencies": {
-    "aws-sdk": "^2.570.0",
+    "aws-sdk": "^2.814.0",
     "moment-timezone": "^0.5.27",
     "serverless": "^1.57.0"
   }
